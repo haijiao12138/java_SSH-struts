@@ -3,7 +3,7 @@
 	xmlns="http://www.springframework.org/schema/beans"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd ">
 
-	<!-- set注入 将user对象交给spring管理 -->
+	<!-- set注入   将user对象交给spring管理  并注入类型-->
 	<bean name="user" class="com.sikiedu.bean.User">
 		<property name="u_id" value="1" />
 		<property name="u_username" value="老王" />

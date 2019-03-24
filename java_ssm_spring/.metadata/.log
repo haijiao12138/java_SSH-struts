@@ -202,3 +202,66 @@ Caused by: java.net.SocketTimeoutException: connect timed out
 
 !ENTRY org.eclipse.jface.text 2 0 2019-03-24 16:27:39.608
 !MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2019-03-24 20:30:54.610
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2019-03-24 20:30:54.614
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.wst.server.discovery 1 0 2019-03-24 20:49:14.148
+!MESSAGE already installed: org.eclipse.jst.server.generic.jonas4
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2019-03-24 20:49:25.448
+!MESSAGE Connection to http://master.dl.sourceforge.net/project/sapnweclipse/updates/site.xml failed on Connection reset. Retry attempt 0 started
+!STACK 0
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.fillBuffer(AbstractSessionInputBuffer.java:158)
+	at org.apache.http.impl.io.SocketInputBuffer.fillBuffer(SocketInputBuffer.java:82)
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.readLine(AbstractSessionInputBuffer.java:271)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.AbstractHttpClientConnection.receiveResponseHeader(AbstractHttpClientConnection.java:281)
+	at org.apache.http.impl.conn.DefaultClientConnection.receiveResponseHeader(DefaultClientConnection.java:259)
+	at org.apache.http.impl.conn.AbstractClientConnAdapter.receiveResponseHeader(AbstractClientConnAdapter.java:232)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryExecute(DefaultRequestDirector.java:686)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:488)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:884)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2019-03-24 20:49:29.440
+!MESSAGE Connection to http://master.dl.sourceforge.net/project/sapnweclipse/updates/site.xml failed on Connection reset. Retry attempt 0 started
+!STACK 0
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.fillBuffer(AbstractSessionInputBuffer.java:158)
+	at org.apache.http.impl.io.SocketInputBuffer.fillBuffer(SocketInputBuffer.java:82)
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.readLine(AbstractSessionInputBuffer.java:271)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.AbstractHttpClientConnection.receiveResponseHeader(AbstractHttpClientConnection.java:281)
+	at org.apache.http.impl.conn.DefaultClientConnection.receiveResponseHeader(DefaultClientConnection.java:259)
+	at org.apache.http.impl.conn.AbstractClientConnAdapter.receiveResponseHeader(AbstractClientConnAdapter.java:232)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryExecute(DefaultRequestDirector.java:686)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:488)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:884)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
