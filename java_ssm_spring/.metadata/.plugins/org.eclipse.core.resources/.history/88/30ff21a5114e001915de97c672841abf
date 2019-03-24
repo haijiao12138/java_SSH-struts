@@ -1,0 +1,23 @@
+package com.sikiedu.test;
+
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.sikiedu.bean.User;
+
+public class HelloSpring2 {
+
+	@Test
+	public void Test2() {
+
+		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");// 创建容器
+
+		User u1 = ac.getBean(User.class);// 通过类型获取,传递类的字节码对象
+		User u2 = ac.getBean(User.class);// 通过类型获取,传递类的字节码对象
+		User u3 = ac.getBean(User.class);// 通过类型获取,传递类的字节码对象
+//		System.out.println(u);
+
+	}
+
+}

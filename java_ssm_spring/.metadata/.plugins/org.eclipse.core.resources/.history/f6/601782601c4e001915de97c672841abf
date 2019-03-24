@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd ">
+
+	<!-- set注入 将user对象交给spring管理 -->
+	<bean name="user" class="com.sikiedu.bean.User">
+		<property name="u_id" value="1" />
+		<property name="u_username" value="老王" />
+		<property name="u_passwprd" value="123" />
+		<!-- 引用类型的注入 -->
+		<property name="u_pet" ref="dog"></property>
+	</bean>
+
+	<!-- 注入引用类型:将pet对象交给spring容器管理 -->
+	<bean name="dog" class="com.sikiedu.bean.Pet">
+		<property name="petType" value="二哈"></property>
+		<property name="color" value="白色"></property>
+	</bean>
+	
+	<bean name="user1" class="com.sikiedu.bean.User">
+		<constructor-arg name="u_username" value="老张"> </constructor-arg>
+		<constructor-arg name="u_pet" ref="dog"> </constructor-arg>
+	
+	</bean>
+
+
+</beans>

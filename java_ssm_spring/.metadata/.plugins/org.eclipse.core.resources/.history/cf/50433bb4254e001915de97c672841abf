@@ -1,0 +1,22 @@
+package com.sikiedu.bean;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
+
+public class MyCollection {
+	//สýื้
+	private Object[] array;
+	
+	//list
+	private List list;
+	
+	//set
+	private Set set;
+	//map
+	private Map map;
+	//Properties
+	private Properties prop;
+
+}

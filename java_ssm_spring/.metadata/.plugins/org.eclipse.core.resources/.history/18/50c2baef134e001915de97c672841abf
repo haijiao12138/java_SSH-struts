@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd ">
+
+<!-- name属性是起一个名字: 可以通过name利用容器来获取对象
+     name可以使用特殊字符,并且可以重复,
+         我们在实际开发中,不推荐将多个对象名字为重复 的-->
+         <!-- id与name作用基本相同,但是id不支持特殊字符, 不能重复,所以不推荐使用-->
+           <!-- class:是被管理对象的全包名,spring会通过这个包名来创建对象 -->
+    <!-- request:在web环境下:如果scope属性为request,那么这个对象呗被创建出来 他的生命周期 
+         会与request请求一致-->
+         <!-- session:同理:生命周期与session一致 -->
+	<bean name="user" class="com.sikiedu.bean.User" 
+	lazy-init="true" scope="prototype" init-method="userLnit" destroy-method="userDestory">
+		<property name="u_id" value="2"></property><!--通过注入的方式为user的id赋值 -->
+
+
+	</bean>
+
+
+
+
+</beans>

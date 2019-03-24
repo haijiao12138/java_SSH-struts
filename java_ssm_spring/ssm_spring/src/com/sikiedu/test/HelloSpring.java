@@ -26,7 +26,13 @@ public class HelloSpring {
 	public void Test2() {
 		// 要想从容器中要配置好的对象,首先要获得容器对象
 		// 根据spring配置文件获取容器对象
-		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+		//ApplicatinContext配置的所有bean都会在容器创建的时候被创建出来,
+		//如果配置的bean较多,
+		//那么在创建容器的时候,会产生内存过大的问题,这种情况在机器硬件性能
+		//较为落后的时候体现比较明显
+		//spring提供了一个开关来解决这个问题:
+		//延迟加载:true:创建容器时不加载bean的对象,获取的时候再加载
+		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");//创建容器
 
 		// 通过名字获取对象
 		// Object u=(User)ac.getBean("user");//通过名字来获取,主文件中name的名字
