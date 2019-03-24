@@ -15,8 +15,7 @@
 		<property name="u_id" value="2"></property><!--通过注入的方式为user的id赋值 -->
 	</bean>
 
-<!-- 导入其他Spring的配置文件 -->
-	<import resource="applicationContext_Injection.xml"/>
+	<import resource="/applicationContext_Injection.xml"/>
 
 
 </beans>

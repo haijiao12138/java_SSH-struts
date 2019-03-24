@@ -1,0 +1,25 @@
+package com.sikiedu.test;
+
+import javax.annotation.Resource;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.sikiedu.bean.Pet;
+
+@RunWith(SpringJUnit4ClassRunner.class) // 使用unit帮我们进行测试,帮我们创建容器
+@ContextConfiguration("classpath:applicationContext.xml.xml") // 读取配置文件
+public class Test_Junit {
+
+	@Resource(name="dog")
+	private Pet p;
+	
+	@Test
+	public void Test2() {
+		System.out.println(p);
+
+	}
+
+}

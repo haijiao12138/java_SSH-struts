@@ -13,10 +13,11 @@
          <!-- session:同理:生命周期与session一致 -->
 	<bean name="user" class="com.sikiedu.bean.User" lazy-init="true" scope="singleton" init-method="userLnit" destroy-method="userDestroy">
 		<property name="u_id" value="2"></property><!--通过注入的方式为user的id赋值 -->
+
+
 	</bean>
 
-<!-- 导入其他Spring的配置文件 -->
-	<import resource="applicationContext_Injection.xml"/>
+
 
 
 </beans>
