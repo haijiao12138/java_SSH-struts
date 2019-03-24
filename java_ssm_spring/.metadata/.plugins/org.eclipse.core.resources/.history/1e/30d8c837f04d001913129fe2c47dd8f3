@@ -1,0 +1,14 @@
+package com.sikiedu.test;
+
+import org.junit.Test;
+
+public class HelloSpring {//在之前项目开发中new对象是我们自己做的
+	@Test
+	public void Test1() {
+		User u=new User();
+		
+		System.out.println(u);
+
+	}
+
+}

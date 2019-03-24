@@ -1,0 +1,9 @@
+package com.sikiedu.bean;
+
+public class User {
+	private Integer u_id;
+	private String u_username;
+	private String u_passwprd;
+
+
+}

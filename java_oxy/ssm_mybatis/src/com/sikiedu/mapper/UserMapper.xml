@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 要是想调用这个sql语句,需要namespace的名字 -->
+<mapper namespace="com.sikiedu.mapper.UserMapper">
+	<sql id="myselect">
+		select * from user
+	</sql>
+
+
+	<!-- 里面一层书写sql语句 -->		<!-- id参数类型 -->		<!-- 返回值类型 -->
+	<select id="selectUserById" parameterType="Integer"
+		resultType="User">
+		select * from user where u_id = #{id}
+	</select>
+
+	<!-- #{}:占位符;尽量选用占位符, '王' 带单引号 -->
+	<!-- ${}:字符串拼接;容易导致SQL注入的攻击; -->
+	<!-- 模糊查询通过名字查询语句 --><!-- ${}:表示字符串拼接 -->
+	<!-- 里面一层书写sql语句 -->		<!-- id参数类型 -->		<!-- 返回值类型 -->
+	<select id="selectUserByName" parameterType="String"
+		resultType="com.sikiedu.bean.User">
+		<!--select * from user where u_username like "%${value}%" -->
+		select * from user where u_username like "%"#{name}"%"
+	</select>
+
+	<!-- 插入对象 -->
+	<insert id="insertUser" parameterType="com.sikiedu.bean.User">
+		insert into user
+		values(null,
+		#{u_username},
+		#{u_password},
+		#{u_sex},
+		#{u_createTime},
+		#{u_cid})
+
+	</insert>
+
+
+	<!-- 修改对象 -->
+	<update id="updateUser" parameterType="com.sikiedu.bean.User">
+		update user set
+		u_username=#{u_username} where u_id=#{u_id}
+
+	</update>
+
+	<!-- 根据id删除用户 -->
+
+	<!-- 修改对象 -->
+	<update id="deleteUserByid" parameterType="Integer">
+		delete from user where
+		u_id=#{id}
+
+	</update>
+
+	<!-- //一对一查询,查询用户所有包装类 -->
+	<resultMap type="UserVo" id="uservolist">
+		<id property="u_id" column="u_id" />
+		<id property="u_username" column="u_username" />
+		<id property="u_sex" column="u_sex" />
+		<!-- 一对一关系 -->
+		<association property="country" javaType="Country">
+			<result property="id" column="c_id" />
+		</association>
+	</resultMap>
+	<select id="selectAllUserVo" resultType=" uservolist">
+		SELECT
+		u.`u_cid`,u.`u_username`,u.`u_id`,u.`u_sex`,c.`c_countryname`,c.`c_id`
+		FROM USER u LEFT JOIN country c ON u.`u_cid`=c.`c_id`
+
+
+
+	</select>
+
+
+	<!-- // 多条件查询通过用户对象中的查询条件查询用户列表 -->
+	<!-- public List<User> selectUserListByUser(User u); -->
+	<select id="selectUserListByUser" parameterType="User"
+		resultType="User">
+		<!-- 查询用户性别,模糊查询用户名 查询用户id 国籍ID -->
+		select *
+		from user
+		<where><!-- wheree 标签可以去掉开头 的AND -->
+			<if test="u_sex!=null and u_sex!=''">
+				and u_sex=#{u_sex}
+
+			</if>
+			<if test="u_username!=null and u_username!=''">
+				u_username=#{u_username}
+
+			</if>
+			where
+			<if test="u_cid!=null and u_cid!=''">
+				u_sex=#{u_sex}
+
+			</if>
+		</where>
+		u_sex=#{u_sex}
+		and u_username like "%"#{u_username}"%"
+		and
+		u_cid=#{u_cid}
+
+	</select>
+
+	<!-- //trim标签 -->
+	<select id="selectUserListByUserTrim" parameterType="User"
+		resultType="User">
+		<!-- 查询用户性别,模糊查询用户名 查询用户id 国籍ID -->
+		select *
+		from user
+		<trim prefix="where" suffixOverrides="AND"><!--默认去掉前and,pre带表前面where --><!-- wheree 标签可以去掉开头 的AND -->
+			<if test="u_sex!=null and u_sex!=''">
+				and u_sex=#{u_sex}AND
+
+			</if>
+			<if test="u_username!=null and u_username!=''">
+				u_username=#{u_username}AND
+
+			</if>
+			where
+			<if test="u_cid!=null and u_cid!=''">
+				u_sex=#{u_sex}AND
+
+			</if>
+		</trim>
+		u_sex=#{u_sex}
+		and u_username like "%"#{u_username}"%"
+		and
+		u_cid=#{u_cid}
+	</select>
+
+	<!-- //更新用户表 -->
+	<!-- public void updateSetUser(User user); -->
+
+	<update id="updateSetUser" parameterType="User">
+		<!-- 用户名 用户密码 用id来限制 -->
+		update user
+		<set>
+			<if test="u_username!=null and u_username!=''">
+				u_username=#{u_username}
+			</if>
+
+			<if test="u_password!=null and u_password!=''">
+				u_username=#{u_username}
+			</if>
+
+			<if test="u_sex!=null and u_sex!=''">
+				u_username=#{u_username}
+			</if>
+		</set>
+		Where u_id=#{u_id}
+	</update>
+
+	<!-- //使用多个id获取用户列表 -->
+	<!-- public List<User> selectUserListByIds(); -->
+	<select id="selectUserListByIds" resultType="User">
+		<include refid="muselect"/> where u_id in
+		<!-- (1,2,3) -->
+		<foreach collection="array" item="id" open="(" separator=")">
+			#{id}
+		</foreach>
+
+	</select>
+
+	<!-- //使用多个id获取用户列表 -->
+	<!-- public List<User> selectUserListByIds(); -->
+	<select id="selectUserListByList" resultType="User">
+		<include refid="muselect"/>
+		where u_id in
+		<!-- (1,2,3) -->
+		<foreach collection="list" item="id" open="(" separator=")">
+			#{id}
+		</foreach>
+git commit -m '--1.5--mybatis动态sql:if标签+where标签+trim标签+set标签+佛reach标签+sql标签--fail'
+	</select>
+
+	<!-- //使用多个id获取用户列表by userVo -->
+	<!-- public List<User> slectUserListByUserVo(User vo); -->
+	<select id="slectUserListByUserVo" parameterType="UserVo" resultType="User">
+		<include refid="muselect"/> where u_id in
+		<!-- (1,2,3) -->
+		<foreach collection="idList" item="id" open="(" separator=")">
+			#{id}
+		</foreach>
+	
+	</select>
+
+
+
+
+</mapper>

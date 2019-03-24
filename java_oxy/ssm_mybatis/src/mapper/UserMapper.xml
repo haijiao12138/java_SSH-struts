@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 要是想调用这个sql语句,需要namespace的名字 -->
+<mapper namespace="com.sikiedu.mapper.UserMapper">
+
+
+	<!-- 里面一层书写sql语句 -->		<!-- id参数类型 -->		<!-- 返回值类型 -->
+	<select id="selectUserById" parameterType="Integer"
+		resultType="User">
+		select * from user where u_id = #{id}
+	</select>
+
+	<!-- #{}:占位符;尽量选用占位符, '王' 带单引号 -->
+	<!-- ${}:字符串拼接;容易导致SQL注入的攻击; -->
+	<!-- 模糊查询通过名字查询语句 --><!-- ${}:表示字符串拼接 -->
+	<!-- 里面一层书写sql语句 -->		<!-- id参数类型 -->		<!-- 返回值类型 -->
+	<select id="selectUserByName" parameterType="String"
+		resultType="com.sikiedu.bean.User">
+		<!--select * from user where u_username like "%${value}%" -->
+		select * from user where u_username like "%"#{name}"%"
+	</select>
+
+	<!-- 插入对象 -->
+	<insert id="insertUser" parameterType="com.sikiedu.bean.User">
+		insert into user
+		values(null,
+		#{u_username},
+		#{u_password},
+		#{u_sex},
+		#{u_createTime},
+		#{u_cid})
+
+	</insert>
+
+
+	<!-- 修改对象 -->
+	<update id="updateUser" parameterType="com.sikiedu.bean.User">
+		update user set
+		u_username=#{u_username} where u_id=#{u_id}
+
+	</update>
+
+	<!-- 根据id删除用户 -->
+	<delete id="deleteUserById" parameterType="Integer">
+		delete from user Where
+		u_id=#{id}
+
+	</delete>
+
+	<!-- 修改对象 -->
+	<update id="deleteUserByid" parameterType="Integer">
+		delete from user where
+		u_id=#{id}
+
+	</update>
+
+	<!-- //通过id去查询 -->
+	<select id="selectUserByUserVold" parameterType="UserVo"
+		resultType="user">
+		select * from user where u_id=#{user.u_id}
+	</select>
+
+	<!-- //查询用户总条数,输出映射selectUserCount -->
+	<select id="selectUserCount" resultType="Integer">
+		Select Count(*) from user
+	</select>
+
+
+</mapper>

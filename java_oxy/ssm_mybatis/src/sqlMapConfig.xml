@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<!-- 读取配置文件 -->
+	<properties resource="db.properties" />
+
+	<!-- 推荐使用package包的形式来验证,包的形式会扫描本包和子包文件下的所有文件
+	以对象类名为别名      大小写不限制    推荐使用小写//配置别名 -->
+	<typeAliases>
+<!-- 		<typeAlias type="com.sikiedu.bean.User" alias="user"/> -->
+	<package name="com.sikiedu.bean"/>
+	</typeAliases>
+
+	<environments default="development">
+		<environment id="development">
+
+			<!-- 使用jdbc的事物 -->
+		<transactionManager type="JDBC"/>
+			<!-- 使用连接池链接数据库 -->
+			<dataSource type="POOLED"><!-- value值通过读取配置文件来加载 -->
+<!-- 				<property name="driver" value="${jdbc.driver}" /> -->
+<!-- 				<property name="url" value="${jdbc.url}" /> -->
+<!-- 				<property name="username" value="${jdbc.username}" /> -->
+<!-- 				<property name="password" value="${jdbc.password}" /> -->
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://localhost:3308/ssm_mybatis" />
+				<property name="username" value="root" />
+				<property name="password" value="root" />
+			</dataSource>
+		</environment>
+	</environments>
+
+<!-- 配置映射器的位置,推荐使用package,但是接口名和xml文件包名需要一致 -->
+	<mappers>
+<!-- 		<mapper resource="mapper/UserMapper.xml" /> 此为相对路径 -->
+<!-- 		<mapper url="file:\\\D:\workS_in_myself\JAVA_NOME_WORK\java_oxy\ssm_mybatis\src\mapper\UserMapper.xml"/>全路径 -->
+<!-- 			<mapper class="com.sikiedu.mapper.UserMapper"/>使用接口,保证两个文件在一个目录下  -->
+				<package name="com.sikiedu.mapper"/><!-- 以包的形式 可以搞定多个 -->
+	</mappers>
+
+</configuration>

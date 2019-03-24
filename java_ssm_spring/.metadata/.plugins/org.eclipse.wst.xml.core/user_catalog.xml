@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <system systemId="http://www.springframework.org/schema/beans/spring-beans.xsd" uri="file:///D:/程序人生/SSM/Siki学院_SSM框架Spring资料与源码/04_约束/schema/beans/spring-beans.xsd"/>
+</catalog>
