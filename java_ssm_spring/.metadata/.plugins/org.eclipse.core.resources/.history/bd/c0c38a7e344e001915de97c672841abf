@@ -21,18 +21,5 @@ public class Test_Annotation {
 
 	}
 	
-	@Test
-	public void Test3() {
-
-		ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext_annotation.xml");// ´´½¨ÈÝÆ÷
-
-		User2 u2 = (User2)ac.getBean("user");
-
-		System.out.println(u2);
-
-
-	}
-	
-	
 
 }

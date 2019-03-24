@@ -2,7 +2,6 @@ package com.sikiedu.bean;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,9 +30,7 @@ public class User2 {
 		return u_pet;
 	}
 
-	//×Ô¶¯×°Åä
-//	@Autowired
-	@Resource(name="dog")
+	@Autowired("cat")
 	public void setU_pet(Pet u_pet) {
 		this.u_pet = u_pet;
 	}

@@ -2,9 +2,7 @@ package com.sikiedu.bean;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.annotation.Resource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -20,7 +18,7 @@ import org.springframework.stereotype.Service;
 // @Scope(scopeName="prototype")
 public class User2 {
 	@Value(value="1")
-	private Integer u_id;//使用暴力反射去注入 破坏了封装性
+	private Integer u_id;
 	private String u_username;
 	private String u_passwprd;
 
@@ -31,9 +29,6 @@ public class User2 {
 		return u_pet;
 	}
 
-	//自动装配
-//	@Autowired
-	@Resource(name="dog")
 	public void setU_pet(Pet u_pet) {
 		this.u_pet = u_pet;
 	}
@@ -59,11 +54,10 @@ public class User2 {
 		this.u_id = u_id;
 	}
 
-	
 	public String getU_username() {
 		return u_username;
 	}
-	@Value("老王八")//推荐在set方法上去注入
+
 	public void setU_username(String u_username) {
 		this.u_username = u_username;
 	}

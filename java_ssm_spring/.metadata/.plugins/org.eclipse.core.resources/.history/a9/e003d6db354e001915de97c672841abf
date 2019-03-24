@@ -33,7 +33,7 @@ public class User2 {
 
 	//×Ô¶¯×°Åä
 //	@Autowired
-	@Resource(name="dog")
+	@Resource(name="cat")
 	public void setU_pet(Pet u_pet) {
 		this.u_pet = u_pet;
 	}

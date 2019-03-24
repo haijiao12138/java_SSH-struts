@@ -5,16 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-	<!-- 注解开发 -->
-	<!-- 开启主键扫描 base-package:扫描该包下以及子包的所有注解 -->
-	<context:component-scan   base-package="com.sikiedu.bean" />
-
-		<bean name="dog" class="com.sikiedu.bean.Pet">
-			<property name="petType" value="二哈"></property>
-			<property name="color" value="白色"></property>
-		</bean>
-
-
-
-
+<!-- 注解开发 -->
+<!-- 开启主键扫描 base-package:扫描该包下以及子包的所有注解-->
+<context:component-scan base-package="com.sikiedu.bean"/>
 </beans>

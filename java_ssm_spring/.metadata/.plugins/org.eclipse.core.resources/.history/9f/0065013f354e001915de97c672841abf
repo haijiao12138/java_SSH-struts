@@ -1,6 +1,5 @@
 package com.sikiedu.bean;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component("cat")
@@ -12,14 +11,12 @@ public class Pet {
 	public String getPetType() {
 		return petType;
 	}
-	@Value("¼Ó·ÆÃ¨")
 	public void setPetType(String petType) {
 		this.petType = petType;
 	}
 	public String getColor() {
 		return color;
 	}
-	@Value("¿§·ÈÉ«")
 	public void setColor(String color) {
 		this.color = color;
 	}
