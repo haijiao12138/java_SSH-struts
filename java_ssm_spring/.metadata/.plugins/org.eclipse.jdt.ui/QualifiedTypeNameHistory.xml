@@ -32,4 +32,10 @@
 <fullyQualifiedTypeName name="org.apache.commons.dbutils.handlers.BeanHandler"/>
 <fullyQualifiedTypeName name="org.apache.catalina.core.ApplicationContext"/>
 <fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
+<fullyQualifiedTypeName name="org.springframework.web.context.support.WebApplicationContextUtils"/>
+<fullyQualifiedTypeName name="com.sikiedu.service.UserService"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Proxy"/>
+<fullyQualifiedTypeName name="java.lang.reflect.InvocationHandler"/>
+<fullyQualifiedTypeName name="com.sikiedu.service.UserServiceImpl"/>
+<fullyQualifiedTypeName name="org.aspectj.lang.ProceedingJoinPoint"/>
 </qualifiedTypeNameHistroy>
